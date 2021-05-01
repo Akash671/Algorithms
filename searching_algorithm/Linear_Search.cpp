@@ -42,3 +42,6 @@ int main()
 	}
 	return 0;
 }
+
+// time complexity T(n)=O(n)
+//wrost case ....
