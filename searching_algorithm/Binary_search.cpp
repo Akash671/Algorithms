@@ -53,3 +53,5 @@ int main()
   }
   return 0;
 }
+
+//running time T(n)=O(logn)
