@@ -1,3 +1,4 @@
+MOD=1000000007
 def power(base,n):
    ans=1
    while(n):
