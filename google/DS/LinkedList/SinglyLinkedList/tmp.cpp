@@ -1,7 +1,11 @@
+/* author : @akash */
+
+
 #include<iostream>
 #include<iostream>
 using namespace std;
 
+//--------------------------
 class node
 {
    public:
@@ -10,12 +14,14 @@ class node
 };
 
 node *head=NULL;
+//--------------------------
 
 void display()
 {
     if(head==NULL)
     {
     	cout<<"list is empty\n";
+    	return;
     }
     cout<<"Linked List is : ";
 	node *p=head;
@@ -120,14 +126,15 @@ void insertRandom()
 
 void insertEnd()
 {
-	node *tmp=NULL;
-	//node p=head;
-	tmp=new node();
 	int d;
 	cout<<"Enter you node data : ";
 	cin>>d;
+	//start
+	node *tmp=NULL;
+	tmp=new node();
 	tmp->data=d;
 	tmp->next=NULL;
+	//end
 	if(head==NULL)
 	{
 		head=tmp;
@@ -145,13 +152,15 @@ void insertEnd()
 
 void insertBeg()
 {
-	node *tmp=NULL;
-	tmp=new node();
 	int d;
 	cout<<"Enter node data : ";
 	cin>>d;
+	//start create node
+	node *tmp=NULL;
+	tmp=new node();
 	tmp->data=d;
 	tmp->next=NULL;
+	//end
 	if(head==NULL)
 	{
 		head=tmp;
@@ -164,23 +173,23 @@ void insertBeg()
 	
 }
 
-void solve()
+void createList()
 {
-	
-	node *tmp=NULL;
-	node *p=NULL;
 	int n;
 	int d;
 	cout<<"Enter size of LinkedList: ";
 	cin>>n;
 	cout<<"Enter your data : ";
+	node *tmp=NULL;//node decleare
+	node *p=NULL;
 	for(int i=0;i<n;++i)
 	{
+	    /*create node*/
 		tmp=new node();
 		cin>>d;
 		tmp->data=d;
 		tmp->next=NULL;
-
+		//end
 		if(head==NULL)
 		{
 			head=tmp;
@@ -208,7 +217,7 @@ int main()
 	    cin>>ch;
 	    if(ch==1)
 	    {
-	    	solve();
+	    	createList();
 	    	cout<<"\n";
 	    }
 		//solve();
@@ -246,6 +255,10 @@ int main()
 		{
 			display();
 			cout<<"\n";
+		}
+		if(ch==9)
+		{
+			exit(0);
 		}
 	}
 	return 0;

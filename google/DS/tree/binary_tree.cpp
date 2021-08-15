@@ -1,5 +1,18 @@
+// author : Akash Kumar 
+
 #include<iostream>
 using namespace std;
+
+/*
+The Maximum number of nodes in a binary tree of height ‘h’ is 2^h – 1. 
+The maximum number of nodes at level ‘l’ of a binary tree is 2^l. 
+In a Binary Tree with N nodes, minimum possible height or the minimum number of levels is? Log2(N+1) ?   \
+
+Sum of all degrees  = 2 * (Sum of Edges)
+
+What is Handshaking Lemma? Handshaking lemma is about undirected graph. In every finite undirected graph, an even number of vertices will always have 
+
+*/
 
 //--------------------------------------------
 class node
@@ -59,6 +72,7 @@ void Inorder(node *root)
 //-----------------------------------------
 void Postorder(node *root)
 {
+
 	if(root==NULL)
 	{
 		return ;
@@ -68,6 +82,28 @@ void Postorder(node *root)
 	cout<<root->data<<" ";
 }
 //------------------------------------------
+
+bool Search(node *root,int key)
+{ 
+   if(root==NULL)
+   {
+   	return false;
+   }
+   if(root->data==key)
+   {
+   	return true;
+   }
+
+   bool forLeft=Search(root->left,key);
+   if(forLeft)
+   {
+   	return true;
+   }
+   bool forRight=Search(root->right,key);
+   return forRight;
+}
+//time complexity this searching function T(n)=O(log(n))
+
 
 int main()
 {
@@ -80,10 +116,22 @@ int main()
         cin>>key;
     	root=Insert(root,key);
     }
-    Preorder(root);
-    cout<<"\n";
+    //Preorder(root);
+    //cout<<"\n";
     Inorder(root);
     cout<<"\n";
-    Postorder(root);
+    //Postorder(root);
+    cout<<"Enter the search key : ";
+    int key;
+    cin>>key;
+    if(Search(root,key))
+    {
+    	cout<<"key found";
+    }
+    else
+    {
+    	cout<<"key is not found";
+    }
+    cout<<"\n";
 	return 0;
 }
