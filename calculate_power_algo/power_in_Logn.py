@@ -7,7 +7,5 @@ def power(base,n):
       base=(base*base)%MOD
       n>>=1 #each time divide the power by 2
    return ans
-   
-   return ans
 
 print(power(2,3))
